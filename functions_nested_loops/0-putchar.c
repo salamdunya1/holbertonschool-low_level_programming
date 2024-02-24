@@ -1,10 +1,11 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * main - print _putchar, followed by new line
- * Return: 0
+ * main - entry point
+ * this program prints "_putchar"
+ *
+ * Return: 0 (always success)
  */
-
 int main(void)
 {
 	_putchar('_');
