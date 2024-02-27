@@ -4,25 +4,24 @@
 *@size: square size
 */
 
-void printSquare(int size);
-
-
-int main()
+void print_square(int size)
+{
+	int pr;
+		int rm;
+	if (size > 0)
 {
 
-    printSquare(2);
-    printSquare(10);
-
-    return 0;
+		for (pr = 0; pr < size; pr++)
+		{
+			for (rm = 0; rm < size; rm++)
+			{
+				_putchar(35);
+			}
+				_putchar('\n');
+		}
 }
-
-
-void printSquare(int size){
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
-            putchar(35);
-        }
-        putchar('\n');
-    }
-
+else
+{
+	_putchar('\n');
+}
 }
