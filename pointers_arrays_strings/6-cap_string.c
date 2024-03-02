@@ -1,26 +1,34 @@
 #include "main.h"
 
-/** 
-* cap_string - converts string words to uppercase
-* @str: string
-* Return: 
+/**
+ * cap_string - capitalizes everey word of a string
+ * @s: string to modify
+ *
+ * Return: the resulting string
  */
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int i;
+	int i, j;
 
-	if (s[0] > 96 && s[0] < 123)
-		s[0] -= 32;
+	char spe[13] = {' ', '\t', '\n', ',', ';', '.',
+		'!', '?', '"', '(', ')', '{', '}'};
+
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		switch (s[i])
+		if (i == 0 && s[i] >= 'a' && s[i] <= 'z')
+			s[i] -= 32;
+
+		for (j = 0; j < 13; j++)
 		{
-		case ' ': case '\n': case '\t': case ',':
-		case ';': case '.': case '!': case '?': case '"':
-		case '(': case ')': case '{': case '}':
-			if (s[i + 1] > 96 && s[i + 1] < 123)
-				s[i + 1] -= 32;
+			if (s[i] == spe[j])
+			{
+				if (s[i + 1] >= 'a' && s[i + 1] <= 'z')
+				{
+					s[i + 1] -= 32;
+				}
+			}
 		}
 	}
+
 	return (s);
 }
