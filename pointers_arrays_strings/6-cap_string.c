@@ -5,25 +5,22 @@
 * @str: string
 * Return: 
  */
-
 char *cap_string(char *str)
 {
-    int i;
-    char separators[] = " \t\n,;.!?\"(){}";
+	int i;
 
-    if (str[0] >= 'a' && str[0] <= 'z')
-        str[0] -= 32;
-
-    for (i = 1; str[i] != '\0'; i++)
-    {
-        if (str[i] >= 'a' && str[i] <= 'z')
-        {
-            if (strchr(separators, str[i - 1]) != NULL)
-            {
-                str[i] -= 32;
-            }
-        }
-    }
-
-    return str;
+	if (s[0] > 96 && s[0] < 123)
+		s[0] -= 32;
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		switch (s[i])
+		{
+		case ' ': case '\n': case '\t': case ',':
+		case ';': case '.': case '!': case '?': case '"':
+		case '(': case ')': case '{': case '}':
+			if (s[i + 1] > 96 && s[i + 1] < 123)
+				s[i + 1] -= 32;
+		}
+	}
+	return (s);
 }
