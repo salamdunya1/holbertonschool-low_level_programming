@@ -1,20 +1,17 @@
 #include "main.h"
-
 /**
- * _puts_recursion - print value of array
- * @s: it is an array
- *
+ * _puts_recursion - prints a string
+ * @s: string
+ * Return: Always 0
  */
-
 void _puts_recursion(char *s)
 {
-	if (*s)
-	{
-		_putchar(*s);
-		_puts_recursion(s + 1);
-	}
-	else
+	if (*s == '\0')
 	{
 		_putchar('\n');
+		return;
 	}
+	_putchar(*s);
+	s++;
+	_puts_recursion(s);
 }
