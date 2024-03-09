@@ -1,34 +1,39 @@
-#include "main.h"
-
+#include<stdio.h>
 /**
- * is_prime - detects if an input number is a prime number.
- * @n: input number.
- * @c: iterator.
- * Return: 1 if n is a prime number. 0 if n is not a prime number.
- */
-int is_prime(unsigned int n, unsigned int c)
+*aux_prime_number - function does the procedure
+*@n: variable
+*@i: variable
+*Return: int
+*/
+int aux_prime_number(int n, int i)
 {
-        if (n % c == 0)
-        {
-                if (n == c)
-                        return (1);
-                else
-                        return (0);
-        }
-        return (0 + is_prime(n, c + 1));
+	if (i == n)
+	{
+		return (1);
+	}
+	else if (n % i != 0)
+	{
+		return (aux_prime_number(n, i + 1));
+	}
+	else
+	{
+		return (0);
+	}
 }
 /**
- * is_prime_number - detects if an input number is a prime number.
- * @n: input number.
- * Return: 1 if n is a prime number. 0 if n is not a prime number.
- */
+*is_prime_number - function recursive
+*@n: variable
+*Return: int
+*/
+
 int is_prime_number(int n)
 {
-        if (n == 0)
-                return (0);
-        if (n < 0)
-                return (0);
-        if (n == 1)
-                return (0);
-        return (is_prime(n, 2));
+	if (n < 2)
+	{
+		return (0);
+	}
+	else
+	{
+		return (aux_prime_number(n, 2));
+	}
 }
