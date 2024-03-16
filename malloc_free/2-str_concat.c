@@ -1,48 +1,49 @@
+#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
-#include "main.h"
+
 /**
-*str_concat - function concat two pointers
-*@s1: variable pointer char
-*@s2: variable pointer char
-*Return: pointer char
-*/
+ * *str_concat- prints buffer in hexa
+ * @s1: the address of memory to print
+ * @s2: the size of the memory to print
+ *
+ * Return: 0.
+ */
+
 char *str_concat(char *s1, char *s2)
 {
-	int len = 0;
-	int len2 = 0;
-	int i, j;
-	char *cat = NULL;
+	int i = 0, j = 0, a, b;
+	char *array;
 
-	if (s1 == NULL)
+	if (s1 == 0)
 	{
 		s1 = "";
 	}
-	if (s2 == NULL)
+	if (s2 == 0)
 	{
 		s2 = "";
 	}
-	len = strlen(s1);
-	len2 = strlen(s2);
-	cat = malloc(sizeof(char) * (len + len2) + 1);
-	if (cat == NULL)
+	while (s1[i] != 0)
 	{
-		return (NULL);
-	}
-	i = 0;
-	while (i < len)
-	{
-		cat[i] = s1[i];
 		i++;
 	}
-	j = 0;
-	while (j < len2)
+	while (s2[j] != 0)
 	{
-		cat[i] = s2[j];
-		i++;
 		j++;
 	}
-	cat[i] = '\0';
-	return (cat);
+
+	array = malloc(i * sizeof(char) + j * sizeof(char) + 1);
+
+	if (array == NULL)
+		return (NULL);
+
+	for (a = 0, b = 0; a < i + j; a++)
+	{
+		if (a < i)
+			array[a] = s1[a];
+		else
+			array[a] = s2[b++];
+	}
+	return (array);
 }
